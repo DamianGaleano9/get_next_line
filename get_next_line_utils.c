@@ -24,3 +24,19 @@ size_t ft_strlen(const char *s)
 	return (i);
 }
 
+char	*ft_strdup(const char	*s)
+{
+	size_t	len;
+	char	*dup;
+	size_t	i;
+
+	len = ft_strlen(s);
+	dup = (char *)malloc(len + 1);
+	if (dup == NULL)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		dup[i] = s[i];
+	dup[len] = '\0';
+	return (dup);
+}
