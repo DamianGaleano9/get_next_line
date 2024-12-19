@@ -26,3 +26,23 @@ char *store_rest (char *text)
 	free (text);
 	return (tmp);
 }
+
+char	*extract_line(char *text)
+{
+	int	i;
+	char *get_line;
+	char	*tmp;
+
+	i = 0;
+	get_line = ft_calloc(1, ft_strlen(text) + 1);
+	while (text[i] != '\0' && text[i] != '\n')
+	{
+		get_line[i] = text[i];
+		i++;
+	}
+	if (text[i] == '\n')
+		get_line[i] = '\n';
+	tmp = ft_strdup(get_line);
+	free (get_line);
+	return (tmp);
+}
