@@ -46,3 +46,14 @@ char	*extract_line(char *text)
 	free (get_line);
 	return (tmp);
 }
+char	*text_update(char *text, char *readen)
+{
+	char	*tmp;
+	if(!readen)
+		return (NULL);
+	if (!text)
+		text = ft_calloc(1, 1);
+	tmp = ft_strjoin(text, readen);
+	free(text);
+	return (tmp);
+}
