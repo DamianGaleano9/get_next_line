@@ -6,7 +6,7 @@
 /*   By: dmazo-ga <dmazo-ga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:11:05 by dmazo-ga          #+#    #+#             */
-/*   Updated: 2024/12/17 18:53:11 by dmazo-ga         ###   ########.fr       */
+/*   Updated: 2024/12/19 18:04:26 by dmazo-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,18 @@ char	*ft_strdup(const char	*s)
 		dup[i] = s[i];
 	dup[len] = '\0';
 	return (dup);
+}
+char *ft_strchr(const char *s, int c)
+{
+	int	i;
+	char conv;
+	
+	i = 0;
+	conv = (char)c;
+	while (s[i] != '\0')
+		if(s[i++] == conv)
+			return ((char *)&s[i -1]);
+	if (s[i] == conv)
+		return ((char *)&s[i]);
+	return (NULL);
 }
