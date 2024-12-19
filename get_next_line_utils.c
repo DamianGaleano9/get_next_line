@@ -6,7 +6,7 @@
 /*   By: dmazo-ga <dmazo-ga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:11:05 by dmazo-ga          #+#    #+#             */
-/*   Updated: 2024/12/19 18:04:26 by dmazo-ga         ###   ########.fr       */
+/*   Updated: 2024/12/19 19:02:38 by dmazo-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,28 @@ char *ft_strchr(const char *s, int c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	int	i;
+	int j;
+	size_t len;
+	char	*new_string;
+	
+	len = ft_strlen(s1) + ft_strlen(s2);
+	new_string = malloc(len + 1);
+	if (new_string == NULL)
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s1[i] != '\0')
+	{
+		new_string[i] = s1[i];
+		i++;
+	}
+	while (s2[j] != '\0')
+		new_string[i++] = s2[j++];
+	new_string[i] = '\0';
+	return (new_string);
+}
+	
