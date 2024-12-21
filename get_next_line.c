@@ -57,3 +57,19 @@ char	*text_update(char *text, char *readen)
 	free(text);
 	return (tmp);
 }
+
+char	*read_file(char *text, char *readen, int fd)
+{
+	int	i;
+
+	while (read(fd, readen, BUFFER_SIZE) > 0)
+	{
+		text = text_update(text, readen);
+		i = 0;
+		while (readen[i] != '\0')
+			readen[i++] = '\0';
+		if (ft_strchr(text, '\n'))
+			break ;
+	}
+	return (text);
+}
