@@ -30,20 +30,20 @@ char *store_rest (char *text)
 char	*extract_line(char *text)
 {
 	int	i;
-	char *get_line;
+	char *ext_line;
 	char	*tmp;
 
 	i = 0;
-	get_line = ft_calloc(1, ft_strlen(text) + 1);
+	ext_line = ft_calloc(1, ft_strlen(text) + 1);
 	while (text[i] != '\0' && text[i] != '\n')
 	{
-		get_line[i] = text[i];
+		ext_line[i] = text[i];
 		i++;
 	}
 	if (text[i] == '\n')
-		get_line[i] = '\n';
-	tmp = ft_strdup(get_line);
-	free (get_line);
+		ext_line[i] = '\n';
+	tmp = ft_strdup(ext_line);
+	free (ext_line);
 	return (tmp);
 }
 char	*text_update(char *text, char *readen)
@@ -72,4 +72,27 @@ char	*read_file(char *text, char *readen, int fd)
 			break ;
 	}
 	return (text);
+}
+char	*get_next_line(int fd)
+{
+	char	*readen;
+	static char	*text;
+	char	*get_line;
+
+	if (fd == -1)
+		return (NULL);
+	readen = ft_calloc(1, BUFFER_SIZE + 1);
+	text = read_file(text, readen, fd);
+	if (!text || text[0] =='\0')
+	{
+		free (readen);
+		if (!text)
+			return (NULL);
+		free (text);
+		return (NULL);
+	}
+	get_line = ext_line(text);
+	text = save_rest(text);
+	free (readen);
+	return (get_line);
 }
