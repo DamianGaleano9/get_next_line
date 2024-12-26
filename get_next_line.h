@@ -11,17 +11,17 @@
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
-#define GET _NEXT_LINE_H
-#include <stdio.h>
-#include <unistd.h>
-#include <fcntl.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stdint.h>
+# define GET_NEXT_LINE_H
+# include <stdio.h>
+# include <unistd.h>
+# include <fcntl.h>
+# include <string.h>
+# include <stdlib.h>
+# include <stdint.h>
 
-#ifndef BUFFER_SIZE
-#	define BUFFER_SIZE 8
-#endif
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 8
+# endif
 
 char	*get_next_line(int fd);
 size_t	ft_strlen(const char *s);

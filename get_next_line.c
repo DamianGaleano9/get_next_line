@@ -10,11 +10,11 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line"
+#include "get_next_line.h"
 
-char *store_rest (char *text)
+char	*store_rest(char *text)
 {
-	char *tmp;
+	char	*tmp;
 
 	tmp = ft_strchr(text, '\n');
 	if (tmp == NULL)
@@ -29,8 +29,8 @@ char *store_rest (char *text)
 
 char	*extract_line(char *text)
 {
-	int	i;
-	char *ext_line;
+	int		i;
+	char	*ext_line;
 	char	*tmp;
 
 	i = 0;
@@ -46,10 +46,12 @@ char	*extract_line(char *text)
 	free (ext_line);
 	return (tmp);
 }
+
 char	*text_update(char *text, char *readen)
 {
 	char	*tmp;
-	if(!readen)
+
+	if (!readen)
 		return (NULL);
 	if (!text)
 		text = ft_calloc(1, 1);
@@ -73,17 +75,18 @@ char	*read_file(char *text, char *readen, int fd)
 	}
 	return (text);
 }
+
 char	*get_next_line(int fd)
 {
-	char	*readen;
+	char		*readen;
 	static char	*text;
-	char	*get_line;
+	char		*get_line;
 
 	if (fd == -1)
 		return (NULL);
 	readen = ft_calloc(1, BUFFER_SIZE + 1);
 	text = read_file(text, readen, fd);
-	if (!text || text[0] =='\0')
+	if (!text || text[0] == '\0')
 	{
 		free (readen);
 		if (!text)

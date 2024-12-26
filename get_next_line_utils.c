@@ -12,7 +12,7 @@
 
 #include "get_next_line.h"
 
-size_t ft_strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
@@ -40,28 +40,29 @@ char	*ft_strdup(const char	*s)
 	dup[len] = '\0';
 	return (dup);
 }
-char *ft_strchr(const char *s, int c)
+
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
-	char conv;
-	
+	int			i;
+	char		conv;
+
 	i = 0;
 	conv = (char)c;
 	while (s[i] != '\0')
-		if(s[i++] == conv)
+		if (s[i++] == conv)
 			return ((char *)&s[i -1]);
 	if (s[i] == conv)
 		return ((char *)&s[i]);
 	return (NULL);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
-	int j;
-	size_t len;
+	int		i;
+	int		j;
+	size_t	len;
 	char	*new_string;
-	
+
 	len = ft_strlen(s1) + ft_strlen(s2);
 	new_string = malloc(len + 1);
 	if (new_string == NULL)
@@ -78,13 +79,14 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	new_string[i] = '\0';
 	return (new_string);
 }
+
 void	*ft_calloc(size_t n_elem, size_t size)
 {
 	size_t	total_size;
 	size_t	i;
 	void	*ptr;
 	char	*tmp;
-	
+
 	if (n_elem == SIZE_MAX || size == SIZE_MAX
 		|| (n_elem >= 4294967296 && size >= 4294967296))
 		return (NULL);
