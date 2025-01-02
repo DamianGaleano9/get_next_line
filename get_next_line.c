@@ -94,8 +94,33 @@ char	*get_next_line(int fd)
 		free (text);
 		return (NULL);
 	}
-	get_line = ext_line(text);
-	text = save_rest(text);
+	get_line = extract_line(text);
+	text = store_rest(text);
 	free (readen);
 	return (get_line);
 }
+
+// int main(void)
+// {
+//     int fd;
+//     char *line;
+
+//     // Abrir un archivo de prueba
+//     fd = open("text.txt", O_RDONLY);
+//     if (fd == -1)
+//     {
+//         perror("Error al abrir el archivo");
+//         return (1);
+//     }
+
+//     // Leer e imprimir líneas hasta el final del archivo
+//     while ((line = get_next_line(fd)) != NULL)
+//     {
+//         printf("%s", line);
+//         free(line); // Liberar memoria
+//     }
+
+//     // Cerrar el archivo
+//     close(fd);
+//     return (0);
+// }
