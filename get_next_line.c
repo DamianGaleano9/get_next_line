@@ -100,27 +100,27 @@ char	*get_next_line(int fd)
 	return (get_line);
 }
 
-// int main(void)
-// {
-//     int fd;
-//     char *line;
+int main(void)
+{
+    int fd;
+    char *line;
 
-//     // Abrir un archivo de prueba
-//     fd = open("text.txt", O_RDONLY);
-//     if (fd == -1)
-//     {
-//         perror("Error al abrir el archivo");
-//         return (1);
-//     }
+    // Abrir un archivo de prueba
+    fd = open("text.txt", O_RDONLY);
+    if (fd == -1)
+    {
+        printf("Error al abrir el archivo");
+        return (1);
+    }
 
-//     // Leer e imprimir líneas hasta el final del archivo
-//     while ((line = get_next_line(fd)) != NULL)
-//     {
-//         printf("%s", line);
-//         free(line); // Liberar memoria
-//     }
+    // Leer e imprimir líneas hasta el final del archivo
+    while ((line = get_next_line(fd)) != NULL)
+    {
+        printf("%s", line);
+        free(line); // Liberar memoria
+    }
 
-//     // Cerrar el archivo
-//     close(fd);
-//     return (0);
-// }
+    // Cerrar el archivo
+    close(fd);
+    return (0);
+}
