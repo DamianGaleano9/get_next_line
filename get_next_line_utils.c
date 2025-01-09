@@ -6,7 +6,7 @@
 /*   By: dmazo-ga <dmazo-ga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 18:11:05 by dmazo-ga          #+#    #+#             */
-/*   Updated: 2024/12/19 19:18:34 by dmazo-ga         ###   ########.fr       */
+/*   Updated: 2025/01/09 14:21:50 by dmazo-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,23 +80,23 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (new_string);
 }
 
-void	*ft_calloc(size_t n_elem, size_t size)
-{
-	size_t	total_size;
-	size_t	i;
-	void	*ptr;
-	char	*tmp;
+	void	*ft_calloc(size_t n_elem, size_t size)
+	{
+		size_t	total_size;
+		size_t	i;
+		void	*ptr;
+		char	*tmp;
 
-	if (n_elem == SIZE_MAX || size == SIZE_MAX
-		|| (n_elem >= 4294967296 && size >= 4294967296))
-		return (NULL);
-	total_size = n_elem * size;
-	ptr = malloc((size_t)total_size);
-	if (ptr == NULL)
-		return (NULL);
-	i = 0;
-	tmp = (char *)ptr;
-	while (i < total_size)
-		tmp[i++] = '\0';
-	return (ptr);
-}
+		if (n_elem == SIZE_MAX || size == SIZE_MAX
+			|| (n_elem >= 4294967296 && size >= 4294967296))
+			return (NULL);
+		total_size = n_elem * size;
+		ptr = malloc((size_t)total_size);
+		if (ptr == NULL)
+			return (NULL);
+		i = 0;
+		tmp = (char *)ptr;
+		while (i < total_size)
+			tmp[i++] = '\0';
+		return (ptr);
+	}

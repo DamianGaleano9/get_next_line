@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dmazo-ga <dmazo-ga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:35:14 by marvin            #+#    #+#             */
-/*   Updated: 2024/12/19 21:35:14 by marvin           ###   ########.fr       */
+/*   Updated: 2025/01/09 14:05:09 by dmazo-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,27 +100,30 @@ char	*get_next_line(int fd)
 	return (get_line);
 }
 
-int main(void)
+int	main(void)
 {
-    int fd;
-    char *line;
+	int	fd;
+	char	*line;
 
-    // Abrir un archivo de prueba
-    fd = open("text.txt", O_RDONLY);
-    if (fd == -1)
-    {
-        printf("Error al abrir el archivo");
-        return (1);
-    }
+	// Abrir un archivo de prueba
+	fd = open("text.txt", O_RDONLY);
+	if (fd == -1)
+	{
+		printf("Error al abrir el archivo");
+		return (1);
+	}
 
-    // Leer e imprimir líneas hasta el final del archivo
-    while ((line = get_next_line(fd)) != NULL)
-    {
-        printf("%s", line);
-        free(line); // Liberar memoria
-    }
+	// Leer e imprimir líneas hasta el final del archivo
+	while (1)
+	{
+	line = get_next_line(fd);
+	if (line == NULL)
+		break ;
+	printf("%s", line);
+	free(line); // Liberar memoria
+	}
 
-    // Cerrar el archivo
-    close(fd);
-    return (0);
+	// Cerrar el archivo
+	close(fd);
+	return (0);
 }
