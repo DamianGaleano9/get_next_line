@@ -6,7 +6,7 @@
 /*   By: dmazo-ga <dmazo-ga@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 21:35:14 by marvin            #+#    #+#             */
-/*   Updated: 2025/01/27 11:36:30 by dmazo-ga         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:53:26 by dmazo-ga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,28 +102,23 @@ char	*get_next_line(int fd)
 
 int	main(void)
 {
-	int	fd;
+	int		fd;
 	char	*line;
 
-	// Abrir un archivo de prueba
 	fd = open("text.txt", O_RDONLY);
 	if (fd == -1)
 	{
 		printf("Error al abrir el archivo");
 		return (1);
 	}
-
-	// Leer e imprimir líneas hasta el final del archivo
 	while (1)
 	{
-	line = get_next_line(fd);
-	if (line == NULL)
-		break ;
-	printf("%s", line);
-	free(line); // Liberar memoria
+		line = get_next_line(fd);
+		if (line == NULL)
+			break ;
+		printf("%s", line);
+		free(line);
 	}
-
-	// Cerrar el archivo
 	close(fd);
 	return (0);
 }
